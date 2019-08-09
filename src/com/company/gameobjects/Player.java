@@ -1,4 +1,6 @@
-package com.company;
+package com.company.gameobjects;
+
+import com.company.gameobjects.Entity;
 
 public class Player extends Entity {
     private int m_MP, m_VP, m_DP;
