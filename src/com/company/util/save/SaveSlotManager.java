@@ -56,4 +56,8 @@ public class SaveSlotManager {
     public static SaveSlotManager getInstance(){
         return INSTANCE;
     }
+
+    public void setCurrentSaveSlot(int currentSaveSlot){
+        this.m_currentSaveSlot = currentSaveSlot;
+    }
 }
