@@ -1,15 +1,28 @@
 package com.company.gameobjects;
 
-import com.company.gameobjects.Entity;
-
 public class Player extends Entity {
     private int m_MP, m_VP, m_DP;
+    private static Player instance;
+    public static void load(int HP, int AP, int MP, int VP, int DP, Status status){
+        instance = new Player(HP, AP, MP, VP, DP, status);
+    }
 
-    public Player(int HP, int AP, int MP, int VP, int DP){
-        super(HP, AP);
+    public static Player getInstance(){
+        return instance;
+    }
+
+    private Player(int HP, int AP, int MP, int VP, int DP, Status status){
+        super(HP, AP, status);
         this.m_MP = MP;
         this.m_VP = VP;
         this.m_DP = DP;
+    }
+
+    @Override
+    public void inflict(double infliction, Status status){
+        if(status != Status.ASLEEP){
+            this.m_status = status;
+        }
     }
 
     public int setMP(){
